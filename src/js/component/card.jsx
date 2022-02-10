@@ -22,7 +22,14 @@ const ListCard = (props) => {
 		)
 			.then((response) => response.json())
 			.then((result) => {
-				setList(result);
+				if (result != []) {
+					setList(result);
+				} else {
+					setList({
+						label: "Sample Task - Do not erase before adding your tasks",
+						label: "done",
+					});
+				}
 			})
 			.catch((error) => console.log("error", error));
 	};
